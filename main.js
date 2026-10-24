@@ -1,7 +1,7 @@
 /* v1 — playground */
 gsap.registerPlugin(ScrollTrigger, SplitText, Draggable, InertiaPlugin);
 
-const SPRITE = "../assets/icons.svg";
+const SPRITE = "assets/icons.svg";
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
