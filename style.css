@@ -73,12 +73,14 @@ body { overflow-x: clip; }
   color: var(--choc); text-decoration: none;
 }
 .site-header__mark {
-  width: min(100%, 276px);
+  display: block;
+  width: min(100%, 250px);
   max-width: none;
   height: auto;
-  aspect-ratio: 307.27 / 28.9;
+  aspect-ratio: 338.18 / 61.28;
   fill: currentColor;
 }
+.site-header__mark use { fill: var(--beige); }
 .site-header__nav { display: flex; flex: none; gap: 8px; }
 
 /* HERO */
