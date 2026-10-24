@@ -78,9 +78,9 @@ body { overflow-x: clip; }
   max-width: none;
   height: auto;
   aspect-ratio: 338.18 / 61.28;
-  fill: currentColor;
+  fill: #000; /* toolkit draws the boxed lockup in pure black and white */
 }
-.site-header__mark use { fill: var(--beige); }
+.site-header__mark use { fill: #fff; }
 .site-header__nav { display: flex; flex: none; gap: 8px; }
 
 /* HERO */
