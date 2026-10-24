@@ -299,6 +299,8 @@ body { overflow-x: clip; }
   --a: var(--choc); --b: var(--red); --w: clamp(90px, 11vw, 150px);
   position: relative;
   display: grid; place-items: center;
+  /* minmax(0, …) so the card's 100% width is the column, not its own text width */
+  grid-template-columns: minmax(0, 1fr);
   padding: clamp(70px, 10vw, 140px) 16px;
   overflow: hidden;
 }
@@ -426,7 +428,20 @@ body { overflow-x: clip; }
 }
 @media (max-width: 360px) {
   .site-header .wordmark--tag { font-size: 0.78rem; }
-  .site-header__nav .pill--solid { padding-inline: 0.85em; font-size: 0.8rem; }
+  .site-header__nav { gap: 6px; }
+  .site-header__nav .pill { min-height: 2.35rem; }
+  .site-header__nav .pill--ghost { width: 2.35rem; }
+  .site-header__nav .pill--solid { padding-inline: 0.75em; font-size: 0.76rem; }
+}
+@media (max-width: 360px), (max-width: 640px) and (max-height: 700px) {
+  /* no room for coins beside the title and CTA: smaller coins, a row up top, two in the bottom corners */
+  .drag { width: 2.9rem; }
+  .drag:nth-child(1) { left: 5%; top: 12%; }
+  .drag:nth-child(2) { left: 79%; top: 11%; }
+  .drag:nth-child(5) { left: 40%; top: 10%; }
+  .drag:nth-child(3) { left: 5%; top: 83%; }
+  .drag:nth-child(4) { left: 80%; top: 82%; }
+  .drag:nth-child(6), .drag:nth-child(9) { display: none; }
 }
 
 /* local override of .scallop-bottom: overlap the two mask layers by 1px to hide the seam */
