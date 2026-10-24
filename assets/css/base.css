@@ -1,0 +1,189 @@
+/* Can Do Project — shared tokens. Values sampled from CDP_Design Toolkit-22Oct.ai */
+
+@font-face {
+  font-family: "Alan Sans";
+  src: url("../fonts/AlanSans-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../fonts/NunitoSans-Variable.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-stretch: 75% 125%;
+  font-display: swap;
+}
+
+:root {
+  /* primary */
+  --red: #b62025;
+  --choc: #471f0b;
+  --beige: #f1eacf;
+
+  /* secondary — use in the recommended pairs below */
+  --blush: #f7abad;
+  --cherry: #ee2f35;
+  --sky: #35a2d2;
+  --sun: #ffdd00;
+  --cobalt: #2e73ba;
+  --bubblegum: #f0a2c7;
+  --teal: #2a897a;
+  --tangerine: #f16530;
+  --slate: #6196a5;
+  --candy: #f8c1d9;
+  --leaf: #8faf3d;
+  --olive: #bdb531;
+  --mauve: #c99fba;
+  --plum: #5d2e81;
+  --rose: #df3e6b;
+
+  /* packaging sleeve colours */
+  --sleeve-purple: #5d2c86;
+  --sleeve-pink: #ed3e74;
+  --sleeve-cyan: #3ec6f0;
+  --sleeve-navy: #1b4f9c;
+  --sleeve-green: #0f6b55;
+  --kraft: #b98d67;
+
+  --font-head: "Alan Sans", "Nunito Sans", system-ui, sans-serif;
+  --font-body: "Nunito Sans", system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--choc);
+  background: var(--beige);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+
+p { margin: 0; }
+
+a { color: inherit; }
+
+button, input { font: inherit; color: inherit; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Wordmark — Alan Sans heavy caps, as in the logo lockups */
+.wordmark {
+  font-family: var(--font-head);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.wordmark--tag {
+  display: inline-block;
+  padding: 0.35em 0.6em 0.3em;
+  border-radius: 0.3em;
+  background: var(--choc);
+  color: var(--beige);
+}
+
+/* Icon from sprite: <svg class="icon"><use href="../assets/icons.svg#i-quatrefoil"/></svg> */
+.icon { width: 1em; height: 1em; fill: currentColor; flex: none; }
+
+/* Coin: coloured circle holding a lighter shape (the packaging icon grid) */
+.coin {
+  --bg: var(--rose);
+  --fg: var(--blush);
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--fg);
+}
+.coin > .icon { width: 58%; height: 58%; }
+
+/* Scalloped bottom edge — the cream card on every sleeve */
+.scallop-bottom {
+  --s: 28px;
+  -webkit-mask:
+    linear-gradient(#000 0 0) top / 100% calc(100% - var(--s) / 2) no-repeat,
+    radial-gradient(circle at 50% 0, #000 calc(var(--s) / 2 - 0.5px), #0000 calc(var(--s) / 2)) bottom / var(--s) calc(var(--s) / 2) repeat-x;
+  mask:
+    linear-gradient(#000 0 0) top / 100% calc(100% - var(--s) / 2) no-repeat,
+    radial-gradient(circle at 50% 0, #000 calc(var(--s) / 2 - 0.5px), #0000 calc(var(--s) / 2)) bottom / var(--s) calc(var(--s) / 2) repeat-x;
+}
+
+/* Postage-stamp perforated edge */
+.stamp-edge {
+  --p: 14px;
+  -webkit-mask: radial-gradient(circle at center, #0000 calc(var(--p) / 3.2), #000 calc(var(--p) / 3.2 + 0.5px)) 50% 50% / var(--p) var(--p) round,
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask-composite: source-over;
+  padding: calc(var(--p) / 2);
+  mask: radial-gradient(circle at center, #0000 calc(var(--p) / 3.2), #000 calc(var(--p) / 3.2 + 0.5px)) 50% 50% / var(--p) var(--p) round,
+    linear-gradient(#000 0 0) content-box;
+  mask-composite: add;
+}
+
+/* Instagram QR — dark-on-light only (inverted codes fail on some scanners).
+   The symbol includes its own quiet zone, so no padding is needed. Hidden on phone
+   widths: nobody can scan the screen they're holding, and the @handle link stays. */
+.qr {
+  --qr-size: 104px;
+  display: block;
+  flex: none;
+  width: var(--qr-size);
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: var(--beige);
+  color: var(--choc);
+  transition: transform 0.4s var(--ease-bounce);
+}
+.qr svg { width: 100%; height: 100%; }
+a.qr:hover { transform: rotate(-3deg) scale(1.04); }
+.qr-follow { display: flex; align-items: center; gap: 16px; }
+.qr-follow__text { display: grid; gap: 2px; line-height: 1.3; }
+.qr-follow__hint { font-size: 0.8125rem; opacity: 0.7; }
+@media (max-width: 699px) {
+  .qr, .qr-only { display: none; }
+}
+
+/* Patterns from the toolkit (red + chocolate) */
+.pat-stripes { background: repeating-linear-gradient(90deg, var(--a, var(--choc)) 0 var(--w, 40px), var(--b, var(--red)) 0 calc(var(--w, 40px) * 2)); }
+.pat-checker {
+  background:
+    repeating-conic-gradient(var(--a, var(--choc)) 0 25%, var(--b, var(--red)) 0 50%) 0 0 / var(--w, 80px) var(--w, 80px);
+}
+.pat-dots {
+  background:
+    radial-gradient(circle, var(--b, var(--red)) 70%, transparent calc(70% + 1px)) 0 0 / var(--w, 60px) var(--w, 60px),
+    var(--a, var(--choc));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
