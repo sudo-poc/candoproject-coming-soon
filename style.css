@@ -74,7 +74,7 @@ body { overflow-x: clip; }
 }
 .site-header__mark {
   display: block;
-  width: min(100%, 250px);
+  width: clamp(134px, 13.8vw, 165px); /* same footprint as the old text tag */
   max-width: none;
   height: auto;
   aspect-ratio: 338.18 / 61.28;
