@@ -2,76 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- /cdp without a trailing slash would resolve relative assets against the root -->
-  <script>if (!location.pathname.endsWith("/")) location.replace(location.pathname + "/" + location.search + location.hash);</script>
-  <title>Can Do Project — coming soon · design directions</title>
-  <meta name="robots" content="noindex">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23b62025'/%3E%3Cg fill='%23f1eacf'%3E%3Ccircle cx='36' cy='36' r='15'/%3E%3Ccircle cx='64' cy='36' r='15'/%3E%3Ccircle cx='36' cy='64' r='15'/%3E%3Ccircle cx='64' cy='64' r='15'/%3E%3Crect x='36' y='36' width='28' height='28'/%3E%3C/g%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/base.css">
-  <style>
-    body { min-height: 100vh; padding: clamp(24px, 5vw, 64px); }
-    header { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: clamp(32px, 6vw, 72px); }
-    header p { font-size: 14px; opacity: 0.7; }
-    h1 { font-size: clamp(48px, 9vw, 128px); margin-bottom: 16px; }
-    .lede { max-width: 52ch; font-size: clamp(16px, 1.6vw, 19px); line-height: 1.5; margin-bottom: clamp(32px, 5vw, 56px); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .card {
-      position: relative; display: flex; flex-direction: column; gap: 14px;
-      padding: 28px 28px 44px; min-height: 300px; text-decoration: none;
-      background: var(--bg); color: var(--fg);
-      transition: transform 0.5s var(--ease-bounce);
-    }
-    .card:hover, .card:focus-visible { transform: translateY(-6px) rotate(-1deg); }
-    .card:focus-visible { outline: 3px solid var(--choc); outline-offset: 4px; }
-    .card .num { font-family: var(--font-head); font-weight: 600; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; }
-    .card h2 { font-size: clamp(40px, 4vw, 56px); }
-    .card p { line-height: 1.45; max-width: 34ch; }
-    .card .coins { display: flex; gap: 8px; margin-top: auto; }
-    .card .coin { width: 44px; }
-    .card .go { position: absolute; right: 28px; bottom: 44px; font-weight: 700; }
-  </style>
+  <title>Can Do Project</title>
+  <!-- the site lives in v1-playground/ -->
+  <link rel="canonical" href="v1-playground/">
+  <meta http-equiv="refresh" content="0; url=v1-playground/">
+  <script>location.replace("v1-playground/" + location.hash);</script>
 </head>
 <body>
-  <header>
-    <span class="wordmark wordmark--tag">Can Do Project</span>
-    <p>coming-soon page · 3 directions · Oct 2026</p>
-  </header>
-
-  <h1>pick a<br>direction.</h1>
-  <p class="lede">Three takes on a holding page while the Shopify store is built. All three use the toolkit colours, Alan Sans + Nunito Sans, the brand shapes and the product mocks, animated with GSAP.</p>
-
-  <div class="grid">
-    <a class="card scallop-bottom" href="v1-playground/" style="--bg: var(--beige); --fg: var(--choc); box-shadow: inset 0 0 0 2px var(--choc);">
-      <span class="num">01 · playground</span>
-      <h2>play to pause</h2>
-      <p>Kinetic type, throwable brand coins, product easels that fan in on scroll. Closest to gsap.com.</p>
-      <div class="coins">
-        <span class="coin" style="--bg: var(--rose); --fg: var(--blush)"><svg class="icon"><use href="assets/icons.svg#i-quatrefoil"/></svg></span>
-        <span class="coin" style="--bg: var(--sky); --fg: var(--sun)"><svg class="icon"><use href="assets/icons.svg#i-sparkle"/></svg></span>
-      </div>
-      <span class="go">open →</span>
-    </a>
-    <a class="card scallop-bottom" href="v2-sleeves/" style="--bg: var(--sleeve-purple); --fg: var(--beige);">
-      <span class="num">02 · sleeves</span>
-      <h2>unbox it</h2>
-      <p>The packaging becomes the page. The sleeve slides off, then a pinned horizontal run through each product's colourway.</p>
-      <div class="coins">
-        <span class="coin" style="--bg: var(--sleeve-pink); --fg: var(--blush)"><svg class="icon"><use href="assets/icons.svg#i-drop"/></svg></span>
-        <span class="coin" style="--bg: var(--sleeve-cyan); --fg: var(--sleeve-purple)"><svg class="icon"><use href="assets/icons.svg#i-bowtie"/></svg></span>
-      </div>
-      <span class="go">open →</span>
-    </a>
-    <a class="card scallop-bottom" href="v3-stamp/" style="--bg: var(--red); --fg: var(--beige);">
-      <span class="num">03 · ripple</span>
-      <h2>no rush, darling</h2>
-      <p>One quiet screen. A grid of coins cycles through waves on its own, and a click sends a wave out from where you tapped.</p>
-      <div class="coins">
-        <span class="coin" style="--bg: var(--beige); --fg: var(--red)"><svg class="icon"><use href="assets/icons.svg#i-hourglass"/></svg></span>
-        <span class="coin" style="--bg: var(--choc); --fg: var(--beige)"><svg class="icon"><use href="assets/icons.svg#i-burst"/></svg></span>
-      </div>
-      <span class="go">open →</span>
-    </a>
-  </div>
+  <a href="v1-playground/">Can Do Project →</a>
 </body>
 </html>

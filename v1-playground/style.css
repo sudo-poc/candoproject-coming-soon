@@ -167,6 +167,7 @@ body { overflow-x: clip; }
 
 /* PRODUCTS */
 .products {
+  --card-w: clamp(260px, 74vw, 320px);
   position: relative;
   padding: clamp(60px, 8vw, 110px) 0 clamp(40px, 5vw, 70px);
 }
@@ -192,10 +193,12 @@ body { overflow-x: clip; }
   width: max-content;
   padding: 16px clamp(20px, 6vw, 88px) 36px;
 }
+/* swipe mode: pad so the first and last cards can snap to dead centre */
+.products:not(.is-deck) .products__track { padding-inline: max(20px, calc((100vw - var(--card-w)) / 2)); }
 
 .easel {
   --c: var(--red);
-  --w: clamp(260px, 74vw, 320px);
+  --w: var(--card-w);
   flex: none;
   width: var(--w);
   aspect-ratio: 12 / 21;
@@ -381,19 +384,49 @@ body { overflow-x: clip; }
 
 /* small screens */
 @media (max-width: 640px) {
+  /* frosted bar once scrolled, so the header doesn't sit on top of body text (class set in main.js) */
+  html { scroll-padding-top: 64px; }
+  .site-header { transition: background 0.3s, box-shadow 0.3s; }
+  .site-header.is-scrolled {
+    background: rgb(241 234 207 / 0.88);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgb(71 31 11 / 0.1);
+  }
   .site-header__nav .pill--ghost span { display: none; }
-  .site-header__nav .pill--ghost { padding: 0.55em; }
+  .site-header__nav .pill--ghost { padding: 0; width: 2.6rem; justify-content: center; }
   .site-header__nav .pill--ghost .icon { width: 1.15em; height: 1.15em; }
+  .site-header__nav .pill { min-height: 2.6rem; }
+
   .hero { padding-bottom: 150px; }
   .hero__title { font-size: 25vw; }
   .drag--wide { display: none; }
-  .drag:nth-child(6) { --x: 74%; --y: 80%; }
-  .drag:nth-child(9) { --x: 8%; --y: 82%; }
+  /* left/top, not --x/--y: the inline custom properties would win over these */
+  .drag:nth-child(3) { left: 3%; }
+  .drag:nth-child(6) { left: 74%; top: 80%; }
+  .drag:nth-child(9) { left: 8%; top: 82%; }
   .hero__hint { display: none; }
   .badge { right: auto; left: calc(50% - 48px); width: 96px; bottom: 22px; }
+
+  .products__head, .manifesto { text-align: center; justify-items: center; }
+  .products__head .eyebrow, .manifesto .eyebrow { justify-content: center; }
+
   .signup__form { flex-direction: column; border-radius: 22px; }
   .signup__form .btn { justify-content: center; }
   .signup__form input { text-align: center; }
+
+  .site-footer { text-align: center; }
+  .site-footer__top, .site-footer__links { justify-content: center; }
+  .site-footer__top { flex-direction: column; align-items: center; }
+  .site-footer__bottom { flex-direction: column; justify-content: center; }
+}
+@media (max-width: 699px) {
+  /* the QR is hidden here, so centre the follow line with the rest of the card */
+  .signup__qr { justify-content: center; text-align: center; }
+  .signup__qr .qr-follow__text { justify-items: center; }
+}
+@media (max-width: 360px) {
+  .site-header .wordmark--tag { font-size: 0.78rem; }
+  .site-header__nav .pill--solid { padding-inline: 0.85em; font-size: 0.8rem; }
 }
 
 /* local override of .scallop-bottom: overlap the two mask layers by 1px to hide the seam */

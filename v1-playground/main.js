@@ -27,6 +27,14 @@ $$(".ribbon__track").forEach((track, t) => {
   track.innerHTML = set + set;
 });
 
+/* ---------- header: frosted bar once off the top (styled on small screens only) ---------- */
+(() => {
+  const header = $(".site-header");
+  const update = () => header.classList.toggle("is-scrolled", scrollY > 40);
+  addEventListener("scroll", update, { passive: true });
+  update();
+})();
+
 /* ---------- signup form ---------- */
 (() => {
   const form = $(".signup__form");

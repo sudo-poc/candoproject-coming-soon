@@ -1,14 +1,8 @@
 # Can Do Project — coming-soon page
 
-Holding page for Can Do Project while the Shopify store is built. Three design directions, plain HTML/CSS/JS with no build step:
+Holding page for Can Do Project while the Shopify store is built. Plain HTML/CSS/JS with no build step.
 
-| Folder | Direction |
-|---|---|
-| `v1-playground/` | Kinetic type, throwable brand coins, product easels on a pinned deck |
-| `v2-sleeves/` | The packaging as the page: sleeve slides off, horizontal run of product sleeves |
-| `v3-stamp/` | One quiet screen: coin grid that ripples on its own and from clicks |
-
-`index.html` links all three. Shared tokens, fonts (Alan Sans, Nunito Sans — both OFL), the brand-shape sprite, product images and GSAP 3.13 live in `assets/`.
+The page lives in `v1-playground/` (kinetic type, throwable brand coins, product easels on a pinned deck; swipe carousel on phones). The root `index.html` just redirects there. Shared tokens, fonts (Alan Sans, Nunito Sans — both OFL), the brand-shape sprite, product images and GSAP 3.13 live in `assets/`.
 
 ## Run locally
 
@@ -22,5 +16,5 @@ and open http://127.0.0.1:8765/.
 
 ## Still to do
 
-- Email signup forms have no backend: set `data-endpoint` on each `<form>` (Klaviyo / Shopify / Formspree).
+- Email signup form has no backend: set `data-endpoint` on the `<form>` (Klaviyo / Shopify / Formspree).
 - `og:image` tags use relative paths; make them absolute once the domain is live.
