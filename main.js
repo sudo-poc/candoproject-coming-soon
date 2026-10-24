@@ -332,8 +332,7 @@ function manifesto(desktop) {
 }
 
 function footerMark() {
-  const split = SplitText.create(".site-footer__mark", { type: "chars", charsClass: "char" });
-  gsap.from(split.chars, {
+  gsap.from(".site-footer__mark path", {
     yPercent: 100, rotation: () => gsap.utils.random(-20, 20), autoAlpha: 0,
     stagger: 0.035, duration: 0.8, ease: "back.out(2)",
     scrollTrigger: { trigger: ".site-footer__mark", start: "top 95%" },
@@ -342,5 +341,4 @@ function footerMark() {
     y: 80, rotation: -3, autoAlpha: 0, duration: 1, ease: "back.out(1.4)",
     scrollTrigger: { trigger: ".signup", start: "top 70%" },
   });
-  return () => split.revert();
 }

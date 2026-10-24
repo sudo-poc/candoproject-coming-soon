@@ -367,13 +367,14 @@ body { overflow-x: clip; }
 /* the underline rule above sets `background`, which would erase the QR tile */
 .site-footer__links .qr, .site-footer__links .qr:hover { --qr-size: 112px; background: var(--beige); }
 .site-footer__mark {
+  display: block;
+  width: 100%; height: auto;
   margin: clamp(40px, 6vw, 80px) 0 clamp(18px, 2vw, 28px);
-  font-size: clamp(2.4rem, 10.4vw, 12rem);
-  letter-spacing: -0.03em;
-  white-space: nowrap;
-  color: var(--beige);
+  overflow: visible;
+  fill: var(--beige);
 }
-.site-footer__mark .char { display: inline-block; }
+/* each letter tumbles in from its own baseline */
+.site-footer__mark path { transform-box: fill-box; transform-origin: 50% 100%; }
 .site-footer__bottom {
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px;
   padding-top: 20px;
