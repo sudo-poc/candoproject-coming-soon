@@ -63,13 +63,23 @@ body { overflow-x: clip; }
 /* header */
 .site-header {
   position: fixed; inset: 0 0 auto; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
   padding: clamp(12px, 2vw, 22px) clamp(14px, 3vw, 36px);
   pointer-events: none;
 }
 .site-header > * { pointer-events: auto; }
-.site-header .wordmark--tag { font-size: clamp(0.85rem, 1.4vw, 1.05rem); text-decoration: none; box-shadow: 0 0 0 2px var(--beige); }
-.site-header__nav { display: flex; gap: 8px; }
+.site-header__brand {
+  flex: 1 1 auto; min-width: 0;
+  color: var(--choc); text-decoration: none;
+}
+.site-header__mark {
+  width: min(100%, 276px);
+  max-width: none;
+  height: auto;
+  aspect-ratio: 307.27 / 28.9;
+  fill: currentColor;
+}
+.site-header__nav { display: flex; flex: none; gap: 8px; }
 
 /* HERO */
 .hero {
@@ -428,7 +438,6 @@ body { overflow-x: clip; }
   .signup__qr .qr-follow__text { justify-items: center; }
 }
 @media (max-width: 360px) {
-  .site-header .wordmark--tag { font-size: 0.78rem; }
   .site-header__nav { gap: 6px; }
   .site-header__nav .pill { min-height: 2.35rem; }
   .site-header__nav .pill--ghost { width: 2.35rem; }
