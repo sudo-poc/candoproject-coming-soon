@@ -256,11 +256,14 @@ body { overflow-x: clip; }
 }
 .easel__points {
   margin: auto 0 0; padding: 0; list-style: none;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 0.9em 6%;
+  display: grid; grid-template-columns: auto 1fr; gap: 0.9em 5%;
   font-size: calc(var(--w) * 0.034); line-height: 1.2;
 }
 .easel__points li { display: flex; align-items: center; gap: 0.6em; }
 .easel__points .coin { --bg: var(--c); --fg: var(--beige); width: 2.4em; }
+/* the catalog's flower is wider than the usual 58% icon box; overflow: visible also lifts
+   the grid min-size floor, so reset it or the coin grows tall */
+.easel__points .icon { overflow: visible; min-width: 0; min-height: 0; }
 
 /* festive price: a scalloped sticker slapped across the photo's bottom edge */
 .easel { position: relative; }
