@@ -211,6 +211,7 @@ body { overflow-x: clip; }
 .easel {
   --c: var(--red);
   --w: var(--card-w);
+  --img: 47%; /* photo share of the card height; the price sticker sits on its edge */
   flex: none;
   width: var(--w);
   aspect-ratio: 12 / 21;
@@ -224,33 +225,38 @@ body { overflow-x: clip; }
   transition: box-shadow 0.4s;
 }
 .easel:hover { box-shadow: 0 1px 0 rgb(71 31 11 / 0.08), 0 30px 50px -18px rgb(71 31 11 / 0.45); }
-.easel__img { flex: 0 0 62%; overflow: hidden; background: var(--c); }
+.easel__img { flex: 0 0 var(--img); overflow: hidden; background: var(--c); }
 .easel__img img {
   width: 100%; height: 100%; object-fit: cover;
+  object-position: var(--pos, 50% 50%);
   transition: transform 0.9s var(--ease-out);
 }
 .easel:hover .easel__img img { transform: scale(1.06); }
 .easel__body {
   flex: 1;
   display: flex; flex-direction: column;
-  padding: 7% 8% 8%;
+  padding: 7% 8% 7%;
   background: #f3ecd2;
 }
 .easel__title {
   color: var(--c);
-  font-size: calc(var(--w) * 0.105);
+  font-size: calc(var(--w) * 0.098);
   line-height: 0.9;
   letter-spacing: -0.04em;
 }
 .easel__kind {
-  margin-top: 0.7em;
+  margin-top: 0.6em;
   font-weight: 600; font-size: calc(var(--w) * 0.042);
   letter-spacing: 0.01em; text-transform: uppercase;
   color: var(--k, var(--choc));
 }
+.easel__desc {
+  margin: 0.6em 0 0;
+  font-size: calc(var(--w) * 0.037); line-height: 1.35;
+}
 .easel__points {
   margin: auto 0 0; padding: 0; list-style: none;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 6%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.9em 6%;
   font-size: calc(var(--w) * 0.034); line-height: 1.2;
 }
 .easel__points li { display: flex; align-items: center; gap: 0.6em; }
@@ -260,15 +266,15 @@ body { overflow-x: clip; }
 .easel { position: relative; }
 .price {
   position: absolute; z-index: 1;
-  top: 62%; right: 6%;
+  top: var(--img); right: 6%;
   width: calc(var(--w) * 0.36); aspect-ratio: 1;
   margin: 0;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   color: var(--beige); text-align: center;
-  transform: translateY(-76%) rotate(-9deg);
+  transform: translateY(-82%) rotate(-9deg);
   transition: transform 0.5s var(--ease-bounce);
 }
-.easel:hover .price { transform: translateY(-76%) rotate(4deg) scale(1.08); }
+.easel:hover .price { transform: translateY(-82%) rotate(4deg) scale(1.08); }
 .price__bg {
   position: absolute; inset: 0; z-index: -1;
   width: 100%; height: 100%;
